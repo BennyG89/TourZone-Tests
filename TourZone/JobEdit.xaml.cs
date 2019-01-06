@@ -24,6 +24,8 @@ namespace TourZone
 
         TourZone_DevEntities db = new TourZone_DevEntities(@"metadata=res://*/TourZoneModel.csdl|res://*/TourZoneModel.ssdl|res://*/TourZoneModel.msl;provider=System.Data.SqlClient;provider connection string='data source = (LocalDb)\TourZone_Dev; initial catalog = TourZone_Dev; persist security info=True;user id = sa; password=Password!23;MultipleActiveResultSets=True;App=EntityFramework'");
 
+        JobsProcess jobsProcess = new JobsProcess();
+
         public Job selectedJob = new Job();
         public UserAccount user = new UserAccount();
         public Dashboard dashboard = new Dashboard();
@@ -41,28 +43,39 @@ namespace TourZone
         /// <param name="e"></param>
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            Job job = new Job();
-            job.JobTitle = txtTitle.Text;
-            job.JobCategoryId = Convert.ToInt32(cboCategory.SelectedValue);
-            job.Location = txtLocation.Text;
-            job.CompanyId = Convert.ToInt32(cboCompany.SelectedValue);
-            job.TourLength = txtTourLength.Text;
-            job.ExpiryDate = dtpExpiry.SelectedDate;
-            
-            int saveSuccess = SaveJob(job);
 
-            if (saveSuccess == 1)
+            DateTime expiryDate = DateTime.Parse(dtpExpiry.SelectedDate.ToString());
+
+            if(jobsProcess.ValidateJob(txtTitle.Text, Convert.ToInt32(cboCategory.SelectedValue), txtLocation.Text, Convert.ToInt32(cboCompany.SelectedValue), txtTourLength.Text, expiryDate))
             {
-                MessageBox.Show("Record saved successfully.", "Save to database", MessageBoxButton.OK, MessageBoxImage.Information);
-                JobsIndex jobsIndex = new JobsIndex();
-                jobsIndex.dashboard = dashboard;
-                jobsIndex.user = user;
-                dashboard.frmMain.Navigate(jobsIndex);
+                Job job = new Job();
+                job.JobTitle = txtTitle.Text;
+                job.JobCategoryId = Convert.ToInt32(cboCategory.SelectedValue);
+                job.Location = txtLocation.Text;
+                job.CompanyId = Convert.ToInt32(cboCompany.SelectedValue);
+                job.TourLength = txtTourLength.Text;
+                job.ExpiryDate = expiryDate;
+
+                int saveSuccess = SaveJob(job);
+
+                if (saveSuccess == 1)
+                {
+                    MessageBox.Show("Record saved successfully.", "Save to database", MessageBoxButton.OK, MessageBoxImage.Information);
+                    JobsIndex jobsIndex = new JobsIndex();
+                    jobsIndex.dashboard = dashboard;
+                    jobsIndex.user = user;
+                    dashboard.frmMain.Navigate(jobsIndex);
+                }
+                else
+                {
+                    MessageBox.Show("Problem saving record.", "Save to database", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
             else
             {
                 MessageBox.Show("Problem saving record.", "Save to database", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+
 
         }
 
