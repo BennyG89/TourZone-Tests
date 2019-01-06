@@ -1,0 +1,63 @@
+﻿<Page x:Class="TourZone.JobSeekerEdit"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TourZone"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Loaded="Page_Loaded"
+      Title="JobSeeker">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/background.jpeg" Opacity=".15"></ImageBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Margin="10,20,10,10" Orientation="Vertical">
+            <Label Content="Name:" Margin="0,7" />
+            <Label Content="Job Title:" Margin="0,7" />
+            <Label Content="Experience Level:" Margin="0,7" />
+            <Label Content="Seeking Work:" Margin="0,7" />
+            <Label Content="Available Now:" Margin="0,7" />
+            <Label Content="Phone Number:" Margin="0,7" />
+            <Label Content="Email:" Margin="0,7" />
+            <Label Content="Bio:" Margin="0,7" />
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="10,20,10,10" Orientation="Vertical">
+            <TextBox Name="txtName" Height="26" Width="200" Margin="0,7" TabIndex="0" IsEnabled="False" />
+            <TextBox Name="txtJobTitle" Height="26" Width="200" Margin="0,7" TabIndex="0" ToolTip="Please enter your most recent job title" />
+            <ComboBox Name="cboExperienceLevel" Height="26" Width="200" Margin="0,7" ToolTip="Please choose an experience level"/>
+            <CheckBox Name="ckSeekingWork" Height="26" Width="200" Margin="0,7" IsChecked="False" ToolTip="Are you seeking your next position?" />
+            <CheckBox Name="ckAvailableNow" Height="26" Width="200" Margin="0,7" IsChecked="False" ToolTip="Are you available to start immediately?" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <ComboBox Grid.Column="0" Name="cboCountryCode" Height="26" Width="65" Margin="0,5" ToolTip="Country code" IsEnabled="False"/>
+                <TextBox Grid.Column="1" Name="txtPhoneNumber" Height="26" Width="130" Margin="0,5" TabIndex="0" ToolTip="Phone number" IsEnabled="False" />
+            </Grid>
+
+            <TextBox Name="txtEmail" Height="26" Width="200" Margin="0,7" TabIndex="0" ToolTip="Email address" IsEnabled="False" />
+            <TextBox Name="txtBio" Height="26" Width="200" Margin="0,7" MaxLines="5" TextWrapping="Wrap" AcceptsReturn="True" SpellCheck.IsEnabled="True" ToolTip="Please enter short bio" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" Margin="115,0,0,5">
+            <Button Name="btnDelete" Content="Delete" Height="26" Width="75" Margin="5,7" ToolTip="Click to Delete Person" VerticalAlignment="Top" />
+            <Button Name="btnDisable" Content="Disable" Height="26" Width="75" Margin="5,7" ToolTip="Click to Disable Account" />
+            <Button Name="btnClear" Content="Clear" Height="26" Width="75" Margin="5,7" ToolTip="Click to Clear Profile" Click="btnClear_Click" />
+            <Button Name="btnSave" Content="Save" Width="75" Margin="5,7" ToolTip="Click to Save Profile" Height="26" VerticalAlignment="Bottom" Click="btnSave_Click" />
+        </StackPanel>
+    </Grid>
+</Page>

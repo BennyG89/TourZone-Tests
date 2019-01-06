@@ -1,0 +1,61 @@
+﻿<Window x:Class="TourZone.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TourZone"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="AliceBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Name="lblHeader"
+               Grid.Row="0"
+               Grid.Column="0"
+               Grid.ColumnSpan="3"
+               HorizontalAlignment="Center"
+               FontSize="25"
+               Content="TourZone" />
+        <Label Name="lblSubHeader"
+               Grid.Row="1"
+               Grid.Column="0"
+               Grid.ColumnSpan="3"
+               HorizontalAlignment="Center"
+               FontSize="20"
+               Content="Please login or register to continue" />
+
+        <StackPanel Grid.Row="2" Grid.Column="0" Margin="0,0,0,20">
+            <Label Content="Username:" Margin="10"/>
+            <Label Content="Password:" Margin="10"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="10,0,0,20">
+            <TextBox Name="txtUsername" Grid.Row="1" Grid.Column="1" Height="26" Width="200" Margin="0,10" TabIndex="0" ToolTip="Please enter your Username" />
+            <PasswordBox Name="txtPassword" Grid.Row="2" Grid.Column="1" Height="26" Width="200" Margin="0,10" TabIndex="0" ToolTip="Please enter your Password" />
+            <Label Name="lblErrorMessage" Content=""/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" >
+            <Button Name="btnExit" Content="Exit" Height="26" Width="50" Margin="5,1" ToolTip="Click to Exit" Click="btnExit_Click" />
+            <Button Name="btnRegister" Content="Register" Height="26" Width="50" Margin="5,1" ToolTip="Click to Register" Click="btnRegister_Click" />
+            <Button Name="btnLogin" Content="Login" Height="26" Width="50" Margin="5,1" ToolTip="Click to Login" Click="btnLogin_Click" />
+        </StackPanel>
+
+        <Image
+            Grid.Row="2"
+            Grid.Column="2"
+            Grid.RowSpan="3"
+            Source="Images/login.jpeg"
+            Margin="20"
+            Stretch="None"/>
+    </Grid>
+</Window>

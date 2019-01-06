@@ -1,0 +1,112 @@
+﻿<Page x:Class="TourZone.CompanyEdit"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TourZone"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Loaded="Page_Loaded"
+      Title="Company">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/background.jpeg" Opacity=".15"></ImageBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Margin="10,0,10,10" Orientation="Vertical">
+            <Label Content="Name:" Margin="0,7" />
+            <Label Content="Available Positions:" Margin="0,7" />
+            <Label Content="Company Size:" Margin="0,7" />
+            <Label Content="Location:" Margin="0,7" />
+            <Label Content="Year Formed:" Margin="0,7" />
+            <Label Content="Phone Number:" Margin="0,7" />
+            <Label Content="Email:" Margin="0,7" />
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="10,0,10,10" Orientation="Vertical">
+            <TextBox Name="txtName" Height="26" Width="200" Margin="0,7" TabIndex="0" ToolTip="Please enter company name" />
+            <TextBox Name="txtAvailablePostions" Height="26" Width="200" Margin="0,7" IsEnabled="False" />
+            <ComboBox Name="cboCompanySize" Height="26" Width="200" Margin="0,7" ToolTip="Please choose the company size"/>
+            <TextBox Name="txtLocation" Height="26" Width="200" Margin="0,7" TabIndex="0" ToolTip="Please enter company location" />
+            <TextBox Name="txtYearFormed" Height="26" Width="200" Margin="0,7" TabIndex="0" ToolTip="Please enter the year the company formed" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <ComboBox Grid.Column="0" Name="cboCountryCode" Height="26" Width="65" Margin="0,5" ToolTip="Please choose a country code"/>
+                <TextBox Grid.Column="1" Name="txtPhoneNumber" Height="26" Width="130" Margin="0,5" TabIndex="0" ToolTip="Please enter phone number" />
+            </Grid>
+
+            <TextBox Name="txtEmail" Height="26" Width="200" Margin="0,7" TabIndex="0" ToolTip="Please enter email address" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="10,10,10,5">
+            <ListView Name="lstJobs">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Job Title" Width="120">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding JobTitle}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Category" Width="120">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding JobCategory.JobCategory1}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Location" Width="120">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Location}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Company" Width="120">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Company.CompanyName}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Tour Length" Width="120">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding TourLength}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Expiry Date" Width="120">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding ExpiryDate}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal" Margin="105,0,0,0">
+            <Button Name="btnDelete" Content="Delete" Height="26" Width="75" Margin="5,1" ToolTip="Click to Delete Person" Click="btnDelete_Click" />
+            <Button Name="btnDisable" Content="Disable" Height="26" Width="75" Margin="5,1" ToolTip="Click to Disable Account" Click="btnDisable_Click" />
+            <Button Name="btnClear" Content="Clear" Height="26" Width="75" Margin="5,1" ToolTip="Click to Clear Profile" Click="btnClear_Click" />
+            <Button Name="btnSave" Content="Save" Height="26" Width="75" Margin="5,1" ToolTip="Click to Save Profile" Click="btnSave_Click" />
+        </StackPanel>
+    </Grid>
+</Page>

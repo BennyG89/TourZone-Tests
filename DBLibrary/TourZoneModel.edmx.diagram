@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5cd69afdf388458fbaf0319dcde90d23" Name="Diagram1">
+        <EntityTypeShape EntityType="TourZoneModel.AccountType" Width="1.5" PointX="3.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourZoneModel.Company" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourZoneModel.CompanySize" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourZoneModel.CompanyUserAccount" Width="1.5" PointX="11.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourZoneModel.CountryCode" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourZoneModel.Job" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourZoneModel.JobApplicant" Width="1.5" PointX="10.5" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourZoneModel.JobCategory" Width="1.5" PointX="6" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourZoneModel.JobSeeker" Width="1.5" PointX="8.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourZoneModel.sysdiagram" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourZoneModel.UserAccount" Width="1.5" PointX="6" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="TourZoneModel.FK_UserAccount_AccountType" ManuallyRouted="false" />
+        <AssociationConnector Association="TourZoneModel.FK_Company_CompanySize" ManuallyRouted="false" />
+        <AssociationConnector Association="TourZoneModel.FK_Company_CountryCode" ManuallyRouted="false" />
+        <AssociationConnector Association="TourZoneModel.FK_CompanyUserAccount_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="TourZoneModel.FK_CompanyUserAccount_UserAccount" ManuallyRouted="false" />
+        <AssociationConnector Association="TourZoneModel.FK_UserAccount_CountryCode" ManuallyRouted="false" />
+        <AssociationConnector Association="TourZoneModel.FK_Job_JobCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="TourZoneModel.FK_JobApplicant_Job" ManuallyRouted="false" />
+        <AssociationConnector Association="TourZoneModel.FK_JobApplicant_JobSeeker" ManuallyRouted="false" />
+        <AssociationConnector Association="TourZoneModel.FK_JobSeeker_UserAccount" ManuallyRouted="false" />
+        <AssociationConnector Association="TourZoneModel.FK_Job_Company" />
+        <EntityTypeShape EntityType="TourZoneModel.ExperienceLevel" Width="1.5" PointX="8.375" PointY="9.875" />
+        <AssociationConnector Association="TourZoneModel.FK_JobSeeker_ExperienceLevel" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
